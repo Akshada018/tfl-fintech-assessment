@@ -26,7 +26,7 @@ The system consists of three independent Spring Boot applications:
 
 ## Technology Stack
 - Java 17  
-- Spring Boot 3.2.x  
+- Spring Boot 3.2.5  
 - REST APIs  
 - ExecutorService (Concurrency)  
 - H2 In-Memory Database  
