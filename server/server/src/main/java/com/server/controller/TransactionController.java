@@ -21,15 +21,10 @@ public class TransactionController {
 	        this.service = service;
 	    }
 
-	    @PostMapping(
-	        value = "/process",
-	        consumes = MediaType.APPLICATION_XML_VALUE,
-	        produces = MediaType.APPLICATION_JSON_VALUE
-	    )
-	    public ResponseEntity<TransactionResponse> process(
-	            @RequestBody TransactionRequest request) {
+		@PostMapping(value = "/process", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+		public ResponseEntity<TransactionResponse> process(@RequestBody TransactionRequest request) {
 
-	        return ResponseEntity.ok(service.process(request));
-	    }
+			return ResponseEntity.ok(service.process(request));
+		}
 
 }
