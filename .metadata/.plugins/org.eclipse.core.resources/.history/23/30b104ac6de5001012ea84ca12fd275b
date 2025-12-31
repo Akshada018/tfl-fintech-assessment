@@ -1,0 +1,5 @@
+package com.bankA.service;
+
+public interface BankService {
+
+}

@@ -1,0 +1,15 @@
+package com.trustfintech.client_bank_b;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ClientBankBApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ClientBankBApplication.class, args);
+		System.out.println("----------- Client Bank B Application -----------");
+
+	}
+
+}

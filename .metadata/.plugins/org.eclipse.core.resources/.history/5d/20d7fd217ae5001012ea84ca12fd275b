@@ -1,0 +1,34 @@
+package com.server.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.server.dao.TransactionRequest;
+import com.server.dao.TransactionResponse;
+import com.server.service.TransactionService;
+
+@Service
+public class TransactionServiceImpl implements TransactionService{
+
+	public TransactionResponse process(TransactionRequest request) {
+
+        long start = System.currentTimeMillis();
+
+        // basic validation
+        if (request.getAmount() <= 0) {
+            return new TransactionResponse(
+                    request.getTrxId(),
+                    "FAILED",
+                    "Invalid Amount",
+                    System.currentTimeMillis() - start
+            );
+        }
+
+        return new TransactionResponse(
+                request.getTrxId(),
+                "SUCCESS",
+                "Completed",
+                System.currentTimeMillis() - start
+        );
+    }
+	
+}

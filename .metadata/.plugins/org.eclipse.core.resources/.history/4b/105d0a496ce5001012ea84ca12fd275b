@@ -1,0 +1,20 @@
+package com.trustfintech.dao;
+
+import jakarta.xml.bind.annotation.*;
+import java.time.OffsetDateTime;
+
+@XmlRootElement(name = "TransactionRequest")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class TransactionXml {
+
+    private String trxId;
+    private String bankId;
+    private Long customerId;
+    private String fromAccount;
+    private String toAccount;
+    private Double amount;
+    private String currency;
+    private OffsetDateTime timestamp;
+
+    // getters and setters
+}

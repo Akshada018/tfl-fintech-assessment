@@ -1,0 +1,5 @@
+package com.trustfintech.util;
+
+public class TransactionIdGenerator {
+
+}

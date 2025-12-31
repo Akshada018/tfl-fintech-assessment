@@ -1,0 +1,10 @@
+package com.server.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.server.service.TransactionService;
+
+@Service
+public class TransactionServiceImpl implements TransactionService{
+
+}

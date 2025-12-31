@@ -1,0 +1,10 @@
+1767090799737	Rename package 'controller'
+1767090849911	Rename package 'com.trustfintech.model'
+1767091369319	Rename package 'com.trustfintech.dao'
+1767091380775	Rename package 'com.trustfintech.controller'
+1767091393910	Rename package 'com.trustfintech.service'
+1767091415267	Rename package 'com.trustfintech.util'
+1767091741638	Rename package 'com.bankA.service'
+1767091832286	Rename type 'BankService'
+1767092545644	Rename package 'com.trustfintech.client_bank_a'
+1767094261239	Copy packages

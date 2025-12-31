@@ -1,0 +1,57 @@
+package com.bankA.serviceImpl;
+
+import java.time.LocalDateTime;
+import java.util.Map;
+
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.bankA.dao.TransactionRequestDao;
+import com.bankA.dao.TransactionXml;
+import com.bankA.service.BankService;
+import com.bankA.util.TransactionIdGenerator;
+import com.bankA.util.XmlConverter;
+
+@Service
+public class BankServiceImpl implements BankService{
+
+	private final RestTemplate restTemplate = new RestTemplate();
+
+    public Map<String, Object> process(TransactionRequestDao dto) {
+
+        String trxId = TransactionIdGenerator.generate();
+
+        TransactionXml xml = new TransactionXml();
+        xml.setTrxId(trxId);
+        xml.setBankId("BANK_A");
+        xml.setCustomerId(dto.getCustomerId());
+        xml.setFromAccount(dto.getFromAccount());
+        xml.setToAccount(dto.getToAccount());
+        xml.setAmount(dto.getAmount());
+        xml.setCurrency(dto.getCurrency());
+        xml.setTimestamp(LocalDateTime.now().toString());
+
+        String xmlPayload = XmlConverter.convertToXml(xml);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_XML);
+
+        HttpEntity<String> request = new HttpEntity<>(xmlPayload, headers);
+
+        restTemplate.postForObject(
+                "http://localhost:8080/server/transaction/process",
+                request,
+                String.class
+        );
+
+        return Map.of(
+                "trxId", trxId,
+                "status", "FORWARDED",
+                "message", "Transaction forwarded to server"
+        );
+    }
+    
+}

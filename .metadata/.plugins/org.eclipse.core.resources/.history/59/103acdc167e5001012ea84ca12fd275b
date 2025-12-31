@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: client-bank-b
+server:
+  port: 8080

@@ -1,0 +1,10 @@
+package com.bankA.service;
+
+import com.bankA.dao.TransactionRequestDao;
+
+public interface BankService {
+
+	
+	Object process(TransactionRequestDao dto);
+
+}

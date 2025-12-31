@@ -1,0 +1,27 @@
+package com.bankA.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bankA.dao.TransactionRequestDao;
+import com.bankA.service.BankService;
+
+@RestController
+@RequestMapping("/bank")
+public class BankController {
+	
+	private final BankService bankService;
+
+	public BankController(BankService bankService) {
+        this.bankService = bankService;
+    }
+
+    @PostMapping("/transaction")
+    public ResponseEntity<?> process(@RequestBody TransactionRequestDao dto) {
+        return ResponseEntity.ok(bankService.process(dto));
+    }
+    
+}
